@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97ea870b-256c-4c1b-b8ac-0a99f0991142" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/consumer-and-persistence/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/consumer-and-persistence/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/AppApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/component/PessoaComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/config/DatabaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/controller/PessoaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/controller/swagger/PessoaControllerSwagger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/entity/PessoaEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/entity/dto/PessoaInsertDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/mapper/PessoaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/repository/PessoaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/java/br/com/on/app/service/PessoaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/resources/db.migration/V1__202503241736_CREATE_TABLE_PESSOA.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/main/resources/db.migration/V2__202503241737_CREATE_INDEX_TABLE_PESSOA.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/test/java/br/com/on/app/builders/PessoaBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/test/java/br/com/on/app/controller/PessoaControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/test/java/br/com/on/app/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validate-and-producer/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/validate-and-producer/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/component/PessoaComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/component/PessoaComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/config/DatabaseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/controller/PessoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/controller/PessoaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/controller/swagger/PessoaControllerSwagger.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/controller/swagger/PessoaControllerSwagger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/entity/PessoaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/entity/PessoaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/entity/dto/PessoaInsertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/entity/dto/PessoaInsertDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/mapper/PessoaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/mapper/PessoaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/repository/PessoaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/repository/PessoaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/on/app/service/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/java/br/com/on/app/service/PessoaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V1__202503241736_CREATE_TABLE_PESSOA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/resources/db.migration/V1__202503241736_CREATE_TABLE_PESSOA.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V2__202503241737_CREATE_INDEX_TABLE_PESSOA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/main/resources/db.migration/V2__202503241737_CREATE_INDEX_TABLE_PESSOA.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/on/app/builders/PessoaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/test/java/br/com/on/app/builders/PessoaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/on/app/controller/PessoaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/test/java/br/com/on/app/controller/PessoaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/on/app/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/test/java/br/com/on/app/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-and-persistence/src/test/resources/application-test.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2xpOOVtFuUexKgeu2RbrylD7GCx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/É O MAC NÉ VIDA/Documents/queues-activemq/consumer-and-persistence"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\É O MAC NÉ VIDA\Documents\queues-activemq\consumer-and-persistence" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\É O MAC NÉ VIDA\Documents\queues-activemq\consumer" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="queues-activemq" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="queues-activemq" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97ea870b-256c-4c1b-b8ac-0a99f0991142" name="Changes" comment="" />
+      <created>1748631516277</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748631516277</updated>
+    </task>
+    <servers />
+  </component>
+</project>

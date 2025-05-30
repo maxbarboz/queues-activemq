@@ -19,8 +19,25 @@ services:
     networks:
       - app-network
 
+  artemis:
+    image: vromero/activemq-artemis
+    container_name: artemis-broker
+    environment:
+      - ARTEMIS_USERNAME=admin
+      - ARTEMIS_PASSWORD=admin
+      - ANONYMOUS_LOGIN_ALLOWED=false
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+    volumes:
+      - artemis-data:/var/lib/artemis-instance
+    restart: unless-stopped
+    networks:
+      - app-network
+
 volumes:
   mysql-data:
+  artemis-data:
 
 networks:
   app-network:
