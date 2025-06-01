@@ -20,17 +20,20 @@ services:
       - app-network
 
   artemis:
-    image: vromero/activemq-artemis
+    image: apache/activemq-artemis:latest
     container_name: artemis-broker
     environment:
-      - ARTEMIS_USERNAME=admin
-      - ARTEMIS_PASSWORD=admin
-      - ANONYMOUS_LOGIN_ALLOWED=false
+      - ARTEMIS_USERNAME=${ARTEMIS_USERNAME}
+      - ARTEMIS_PASSWORD=${ARTEMIS_PASSWORD}
+      - ARTEMIS_ROLE=admin
+      - ARTEMIS_CLUSTER_USER=clusterUser
+      - ARTEMIS_CLUSTER_PASSWORD=clusterPassword
+      - ARTEMIS_CREATE_USER=true
     ports:
       - "61616:61616"
       - "8161:8161"
     volumes:
-      - artemis-data:/var/lib/artemis-instance
+      - ./save-broker:/var/lib/artemis-instance
     restart: unless-stopped
     networks:
       - app-network

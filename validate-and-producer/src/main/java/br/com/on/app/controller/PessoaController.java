@@ -1,8 +1,7 @@
 package br.com.on.app.controller;
 
-import br.com.on.app.controller.swagger.PessoaControllerSwagger;
-import br.com.on.app.dto.PessoaInsertDTO;
-import br.com.on.app.service.PessoaService;
+import br.com.on.app.dto.PessoaValidationDTO;
+import br.com.on.app.service.AmqService;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +12,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/pessoas")
 @Log4j2
 @CrossOrigin
-public class PessoaController implements PessoaControllerSwagger {
+public class PessoaController {
 
-    private final PessoaService service;
+    private final AmqService service;
 
     @Autowired
-    public PessoaController(PessoaService service) {
+    public PessoaController(AmqService service) {
         this.service = service;
     }
 
-    @PostMapping
-    public ResponseEntity<PessoaInsertDTO> create(@Valid @RequestBody PessoaInsertDTO pessoaInsertDTO) {
-        log.info("Iniciando processo de inclusão de um registro de Pessoa");
-        PessoaInsertDTO pessoaPersistida = service.incluirPessoa(pessoaInsertDTO);
-        log.info("Processo de inclusão finalizado.");
-        return ResponseEntity.ok(pessoaPersistida);
+    @PostMapping("/validation")
+    public ResponseEntity<PessoaValidationDTO> create(@Valid @RequestBody PessoaValidationDTO pessoaValidationDTO) {
+        log.debug("Iniciando processo de validação e envio da pessoa para a fila");
+        service.validarPessoaAndEnviar(pessoaValidationDTO);
+        log.debug("Processo de validação e envio da pessoa para a fila CONCLUÍDO");
+        return ResponseEntity.ok(null);
     }
+
 }
