@@ -53,6 +53,7 @@ public class AmqService {
             MessageProducer producer = session.createProducer(queue);
 
             TextMessage message = session.createTextMessage(JsonConverter.converterJson(pessoa));
+            message.setStringProperty("JMS_AMQ_DUPLICATE_DETECTION_ID", pessoa.getCpf());
             producer.send(message);
 
             System.out.println("Registro incluído na fila para processamento");
