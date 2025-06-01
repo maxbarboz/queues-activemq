@@ -1,6 +1,6 @@
 package br.com.on.app.controller.swagger;
 
-import br.com.on.app.entity.dto.PessoaInsertDTO;
+import br.com.on.app.dto.PessoaInsertDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

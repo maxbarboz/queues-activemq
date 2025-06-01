@@ -1,17 +1,13 @@
 package br.com.on.app.controller;
 
 import br.com.on.app.controller.swagger.PessoaControllerSwagger;
-import br.com.on.app.entity.dto.PessoaInsertDTO;
+import br.com.on.app.dto.PessoaInsertDTO;
 import br.com.on.app.service.PessoaService;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pessoas")
