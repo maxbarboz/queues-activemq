@@ -6,12 +6,9 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.validator.routines.EmailValidator;
 
-
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class MyPessoaValidators {
 
     private final String cpf;

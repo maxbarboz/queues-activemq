@@ -8,7 +8,7 @@ spring:
     password: ${ACTIVEMQ_PASSWORD:admin}
     packages:
       trust-all: true
-    nameQueue: fila.pessoa
+    name-queue: fila.pessoa
 
 server:
   port: 8080
