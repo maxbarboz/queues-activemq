@@ -22,8 +22,24 @@
 	</properties>
 
 	<dependencies>
-		<!-- Nenhuma dependência extra necessária, herda tudo do parent -->
-		<!-- Adicione aqui só se precisar algo específico -->
+		<dependency>
+			<groupId>br.com.caelum.stella</groupId>
+			<artifactId>caelum-stella-bean-validation</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.libphonenumber</groupId>
+			<artifactId>libphonenumber</artifactId>
+			<version>9.0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.7</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

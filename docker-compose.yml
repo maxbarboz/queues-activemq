@@ -23,9 +23,9 @@ services:
     image: vromero/activemq-artemis
     container_name: artemis-broker
     environment:
-      - ARTEMIS_USERNAME=admin
-      - ARTEMIS_PASSWORD=admin
-      - ANONYMOUS_LOGIN_ALLOWED=false
+      - ARTEMIS_USERNAME=${ARTEMIS_USERNAME}
+      - ARTEMIS_PASSWORD=${ARTEMIS_PASSWORD}
+      - ANONYMOUS_LOGIN_ALLOWED=${ANONYMOUS_LOGIN_ALLOWED}
     ports:
       - "61616:61616"
       - "8161:8161"
