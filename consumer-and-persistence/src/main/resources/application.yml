@@ -25,6 +25,14 @@ spring:
       tagsSorter: alpha
     api-docs:
       path: /documentacao
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
 server:
   port: 8080
   servlet:
