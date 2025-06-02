@@ -51,19 +51,21 @@ public class AmqServiceConsumer {
                         String messagePessoa = ((TextMessage) message).getText();
                         PessoaEntity pessoaEntity = JsonDesconverter.desconverterJson(messagePessoa);
 
-                        if(pessoaComponent.isPessoaNaoCadastrada(pessoaEntity)) {
-                            throw new MyPersonalException("Pessoa já cadastrada na base de dados - CPF " + pessoaEntity.getCpf());
+                        if (pessoaComponent.isPessoaNaoCadastrada(pessoaEntity)) {
+                            message.acknowledge();
+                            log.info("Pessoa já cadastrada na base de dados - CPF {}", pessoaEntity.getCpf());
                         } else {
                             pessoaComponent.save(pessoaEntity);
-                            Thread.sleep(20000); //simulando demora do consumidor ao processar a mensagem
+                            Thread.sleep(20000); // simulando demora do consumidor
+                            message.acknowledge();
                         }
                     } else {
                         throw new MyPersonalException("Erro ao ler mensagem da fila!");
                     }
-                } catch (JMSException e) {
-                    System.err.println("Erro ao processar a mensagem: " + e.getMessage());
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                } catch (MyPersonalException e) {
+                    log.error("Erro de negócio: {}", e.getMessage());
+                } catch (Exception e) {
+                    log.error("Erro inesperado: {}", e.getMessage());
                 }
             });
 
