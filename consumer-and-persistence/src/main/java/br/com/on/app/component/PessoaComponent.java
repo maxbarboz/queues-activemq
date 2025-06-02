@@ -15,7 +15,12 @@ public class PessoaComponent {
         this.repository = pessoaRepository;
     }
 
-    public PessoaEntity save(PessoaEntity pessoaEntity) {
-        return repository.save(pessoaEntity);
+    public void save(PessoaEntity pessoaEntity) {
+        repository.save(pessoaEntity);
     }
+
+    public Boolean isPessoaNaoCadastrada(PessoaEntity pessoaEntity) {
+        return repository.findByCpf(pessoaEntity.getCpf()).isPresent();
+    }
+
 }

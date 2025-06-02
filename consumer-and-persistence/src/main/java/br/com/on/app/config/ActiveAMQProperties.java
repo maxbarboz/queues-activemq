@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "spring.activemq")
 @Getter
 @Setter
-public class ActiveMQProperties {
+public class ActiveAMQProperties {
 
     private String brokerUrl;
     private String user;

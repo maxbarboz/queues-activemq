@@ -4,7 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import br.com.on.app.builders.PessoaBuilder;
-import br.com.on.app.service.AmqService;
+import br.com.on.app.service.AmqServiceProducer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -27,7 +27,7 @@ class PessoaControllerTest {
     private ObjectMapper objectMapper;
 
     @Mock
-    private AmqService amqService;
+    private AmqServiceProducer amqServiceProducer;
 
     @Test
     void incluirPessoaTest() throws Exception {
