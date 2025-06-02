@@ -1,6 +1,6 @@
 package br.com.on.app.service;
 
-import br.com.on.app.config.ActiveMQProperties;
+import br.com.on.app.config.ActiveAMQProperties;
 import br.com.on.app.dto.PessoaValidationDTO;
 import br.com.on.app.util.JsonConverter;
 import br.com.on.app.validators.MyPessoaValidators;
@@ -22,13 +22,13 @@ import javax.jms.TextMessage;
 @Getter
 @Setter
 @Service
-public class AmqService {
+public class AmqServiceProducer {
 
-    private ActiveMQProperties activeMQProperties;
+    private ActiveAMQProperties activeAMQProperties;
 
     @Autowired
-    private AmqService(ActiveMQProperties activeMQProperties) {
-        this.activeMQProperties = activeMQProperties;
+    private AmqServiceProducer(ActiveAMQProperties activeAMQProperties) {
+        this.activeAMQProperties = activeAMQProperties;
     }
 
     public void validarPessoaAndEnviar(PessoaValidationDTO pessoa){
@@ -43,13 +43,13 @@ public class AmqService {
     }
 
     private void enviarParaFila(PessoaValidationDTO pessoa) {
-        try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(activeMQProperties.getBrokerUrl());
-             Connection connection = factory.createConnection(activeMQProperties.getUser(), activeMQProperties.getPassword());
+        try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(activeAMQProperties.getBrokerUrl());
+             Connection connection = factory.createConnection(activeAMQProperties.getUser(), activeAMQProperties.getPassword());
              Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
 
             connection.start();
 
-            Queue queue = session.createQueue(activeMQProperties.getNameQueue());
+            Queue queue = session.createQueue(activeAMQProperties.getNameQueue());
             MessageProducer producer = session.createProducer(queue);
 
             TextMessage message = session.createTextMessage(JsonConverter.converterJson(pessoa));
@@ -62,7 +62,5 @@ public class AmqService {
             e.printStackTrace();
         }
     }
-
-
 
 }

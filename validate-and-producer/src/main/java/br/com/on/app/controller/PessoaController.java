@@ -1,7 +1,7 @@
 package br.com.on.app.controller;
 
 import br.com.on.app.dto.PessoaValidationDTO;
-import br.com.on.app.service.AmqService;
+import br.com.on.app.service.AmqServiceProducer;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class PessoaController {
 
-    private final AmqService service;
+    private final AmqServiceProducer service;
 
     @Autowired
-    public PessoaController(AmqService service) {
+    public PessoaController(AmqServiceProducer service) {
         this.service = service;
     }
 
