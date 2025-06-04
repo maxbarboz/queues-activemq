@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Teste de Carga para Queue">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variáveis Definidas Pelo Usuário">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">5</intProp>
+        <intProp name="ThreadGroup.ramp_time">5</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador de Iteração">
+          <stringProp name="LoopController.loops">100000</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Gerador de Informações ">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.util.Random
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+Random random = new Random()
+
+// Listas para nome e sobrenome
+def nomes = [
+    &quot;Lucas&quot;, &quot;Ana&quot;, &quot;Carlos&quot;, &quot;Mariana&quot;, &quot;Pedro&quot;, &quot;Juliana&quot;, &quot;Mateus&quot;, &quot;Fernanda&quot;, &quot;Bruno&quot;, &quot;Patricia&quot;,
+    &quot;Gabriel&quot;, &quot;Aline&quot;, &quot;Rafael&quot;, &quot;Camila&quot;, &quot;Vinicius&quot;, &quot;Beatriz&quot;, &quot;Felipe&quot;, &quot;Larissa&quot;, &quot;Ricardo&quot;, &quot;Isabela&quot;,
+    &quot;Daniel&quot;, &quot;Amanda&quot;, &quot;Tiago&quot;, &quot;Renata&quot;, &quot;Gustavo&quot;, &quot;Leticia&quot;, &quot;Leonardo&quot;, &quot;Tatiane&quot;, &quot;Eduardo&quot;, &quot;Vanessa&quot;,
+    &quot;André&quot;, &quot;Claudia&quot;, &quot;Fernando&quot;, &quot;Carla&quot;, &quot;Rodrigo&quot;, &quot;Sabrina&quot;, &quot;Paulo&quot;, &quot;Bianca&quot;, &quot;Thiago&quot;, &quot;Priscila&quot;,
+    &quot;Diego&quot;, &quot;Daniela&quot;, &quot;Fábio&quot;, &quot;Gabriela&quot;, &quot;João&quot;, &quot;Simone&quot;, &quot;Caio&quot;, &quot;Natália&quot;, &quot;Marcelo&quot;, &quot;Roberta&quot;,
+    &quot;Igor&quot;, &quot;Juliane&quot;, &quot;Murilo&quot;, &quot;Lorena&quot;, &quot;Alexandre&quot;, &quot;Nicole&quot;, &quot;José&quot;, &quot;Débora&quot;, &quot;Samuel&quot;, &quot;Tatiana&quot;,
+    &quot;Victor&quot;, &quot;Rafaela&quot;, &quot;Alan&quot;, &quot;Jéssica&quot;, &quot;Henrique&quot;, &quot;Letícia&quot;, &quot;Jonathan&quot;, &quot;Silvia&quot;, &quot;Antônio&quot;, &quot;Mônica&quot;,
+    &quot;César&quot;, &quot;Elaine&quot;, &quot;Hugo&quot;, &quot;Cristiane&quot;, &quot;Leandro&quot;, &quot;Michele&quot;, &quot;Renan&quot;, &quot;Flávia&quot;, &quot;Brayan&quot;, &quot;Rosana&quot;,
+    &quot;Luiz&quot;, &quot;Helena&quot;, &quot;Otávio&quot;, &quot;Vera&quot;, &quot;Vitor&quot;, &quot;Ingrid&quot;, &quot;Wesley&quot;, &quot;Sandra&quot;, &quot;Luan&quot;, &quot;Gisele&quot;,
+    &quot;Ruan&quot;, &quot;Kelly&quot;, &quot;Sérgio&quot;, &quot;Adriana&quot;, &quot;Elias&quot;, &quot;Regina&quot;, &quot;Rodolfo&quot;, &quot;Estela&quot;
+]
+
+def sobrenomes = [
+    &quot;Silva&quot;, &quot;Santos&quot;, &quot;Oliveira&quot;, &quot;Souza&quot;, &quot;Rodrigues&quot;, &quot;Ferreira&quot;, &quot;Almeida&quot;, &quot;Costa&quot;, &quot;Gomes&quot;, &quot;Martins&quot;,
+    &quot;Araujo&quot;, &quot;Ribeiro&quot;, &quot;Barbosa&quot;, &quot;Cardoso&quot;, &quot;Lima&quot;, &quot;Rocha&quot;, &quot;Carvalho&quot;, &quot;Correia&quot;, &quot;Pereira&quot;, &quot;Mendes&quot;,
+    &quot;Nascimento&quot;, &quot;Batista&quot;, &quot;Dias&quot;, &quot;Teixeira&quot;, &quot;Monteiro&quot;, &quot;Moreira&quot;, &quot;Moura&quot;, &quot;Cavalcante&quot;, &quot;Freitas&quot;, &quot;Pinto&quot;,
+    &quot;Ramos&quot;, &quot;Vieira&quot;, &quot;Farias&quot;, &quot;Andrade&quot;, &quot;Machado&quot;, &quot;Campos&quot;, &quot;Gonçalves&quot;, &quot;Viana&quot;, &quot;Melo&quot;, &quot;Soares&quot;,
+    &quot;Pires&quot;, &quot;Sales&quot;, &quot;Leite&quot;, &quot;Borges&quot;, &quot;Duarte&quot;, &quot;Figueiredo&quot;, &quot;Assis&quot;, &quot;Bezerra&quot;, &quot;Rezende&quot;, &quot;Barros&quot;
+]
+
+// Dados para endereço
+def ruas = [
+    &quot;Rua das Flores&quot;, &quot;Avenida Paulista&quot;, &quot;Rua do Sol&quot;, &quot;Travessa das Laranjeiras&quot;, &quot;Rua Santa Catarina&quot;,
+    &quot;Avenida Brasil&quot;, &quot;Rua Marechal Deodoro&quot;, &quot;Rua Sete de Setembro&quot;, &quot;Rua dos Andradas&quot;, &quot;Avenida Ipiranga&quot;
+]
+
+def bairros = [
+    &quot;Centro&quot;, &quot;Jardim América&quot;, &quot;Vila Mariana&quot;, &quot;Mooca&quot;, &quot;Pinheiros&quot;, &quot;Ipanema&quot;, &quot;Copacabana&quot;, &quot;Barra Funda&quot;,
+    &quot;Bela Vista&quot;, &quot;Lapa&quot;
+]
+
+def cidades = [
+    &quot;São Paulo&quot;, &quot;Rio de Janeiro&quot;, &quot;Belo Horizonte&quot;, &quot;Curitiba&quot;, &quot;Porto Alegre&quot;, &quot;Fortaleza&quot;, &quot;Recife&quot;, &quot;Salvador&quot;,
+    &quot;Brasília&quot;, &quot;Campinas&quot;
+]
+
+def estados = [
+    &quot;SP&quot;, &quot;RJ&quot;, &quot;MG&quot;, &quot;PR&quot;, &quot;RS&quot;, &quot;CE&quot;, &quot;PE&quot;, &quot;BA&quot;, &quot;DF&quot;, &quot;SP&quot;
+]
+
+// Selecionar nome e sobrenome aleatórios
+def nome = nomes[random.nextInt(nomes.size())]
+def sobrenome = sobrenomes[random.nextInt(sobrenomes.size())]
+def nomeCompleto = nome + &quot; &quot; + sobrenome
+
+// Gerar email
+def numeroEmail = random.nextInt(900) + 100
+def email = (nome + sobrenome + numeroEmail + &quot;@teste.com&quot;).toLowerCase().replaceAll(&quot; &quot;, &quot;&quot;)
+
+// Gerar CPF válido
+def n1 = random.nextInt(10)
+def n2 = random.nextInt(10)
+def n3 = random.nextInt(10)
+def n4 = random.nextInt(10)
+def n5 = random.nextInt(10)
+def n6 = random.nextInt(10)
+def n7 = random.nextInt(10)
+def n8 = random.nextInt(10)
+def n9 = random.nextInt(10)
+
+def d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10
+d1 = 11 - (d1 % 11)
+if (d1 &gt;= 10) d1 = 0
+
+def d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11
+d2 = 11 - (d2 % 11)
+if (d2 &gt;= 10) d2 = 0
+
+def cpf = String.format(&quot;%d%d%d%d%d%d%d%d%d%d%d&quot;, n1, n2, n3, n4, n5, n6, n7, n8, n9, d1, d2)
+
+// Gerar data nascimento
+def year = random.nextInt(2007 - 1950 + 1) + 1950
+def month = random.nextInt(12) + 1
+def day
+
+if (month == 2) {
+    day = random.nextInt(28) + 1
+} else if ([4, 6, 9, 11].contains(month)) {
+    day = random.nextInt(30) + 1
+} else {
+    day = random.nextInt(31) + 1
+}
+
+def dataNascimento = LocalDate.of(year, month, day)
+def dataNascimentoStr = dataNascimento.format(DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;))
+
+// Gerar telefone
+def ddd = random.nextInt(20) + 11
+def prefixo = 9
+def parte1 = random.nextInt(9000) + 1000
+def parte2 = random.nextInt(9000) + 1000
+def telefone = String.format(&quot;%d%d%d%d&quot;, ddd, prefixo, parte1, parte2)
+
+// Gerar endereço
+def rua = ruas[random.nextInt(ruas.size())]
+def numero = random.nextInt(9999) + 1
+def bairro = bairros[random.nextInt(bairros.size())]
+def cidade = cidades[random.nextInt(cidades.size())]
+def estado = estados[cidades.indexOf(cidade)]  // pegar estado correspondente à cidade
+
+def endereco = &quot;${rua}, ${numero} - ${bairro}, ${cidade} - ${estado}&quot;
+
+// Salvar variáveis no JMeter
+vars.put(&quot;nome&quot;, nomeCompleto)
+vars.put(&quot;cpf&quot;, cpf)
+vars.put(&quot;email&quot;, email)
+vars.put(&quot;dataNascimento&quot;, dataNascimentoStr)
+vars.put(&quot;telefone&quot;, telefone)
+vars.put(&quot;endereco&quot;, endereco)</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Validation Pessoa e Envio para Fila">
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/api/pessoas/validation</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;nome&quot;: &quot;${nome}&quot;,&#xd;
+    &quot;cpf&quot;: &quot;${cpf}&quot;,&#xd;
+    &quot;email&quot;: &quot;${email}&quot;,&#xd;
+    &quot;dataNascimento&quot;: &quot;${dataNascimento}&quot;,&#xd;
+    &quot;telefone&quot;: &quot;${telefone}&quot;,&#xd;
+    &quot;endereco&quot;: &quot;${endereco}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Gerenciador de Cabeçalhos HTTP">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árvore de Resultados">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

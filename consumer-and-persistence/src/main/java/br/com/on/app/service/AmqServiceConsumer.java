@@ -56,7 +56,6 @@ public class AmqServiceConsumer {
                             log.info("Pessoa já cadastrada na base de dados - CPF {}", pessoaEntity.getCpf());
                         } else {
                             pessoaComponent.save(pessoaEntity);
-                            Thread.sleep(20000); // simulando demora do consumidor
                             message.acknowledge();
                         }
                     } else {
